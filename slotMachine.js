@@ -52,6 +52,7 @@ function getPokemonImage (slotValue) {
 // 1.) "spin" call for the function that will generate the numbers
 // 2.) delay the "return" of the numbers
 
+
 function spin () { // upon clicking pull, the column arrays are generated...
     
 
@@ -185,11 +186,21 @@ function playBoing() {
     boing.play();
 }
 
-function tenPull () {
-    console.log("A 10x pull? Really?")
-    for (let i = 0; i<10; i++) {
+
+/*
+Description: Calls spin() multiple times.
+Parameters: @numSpins - number of times to call spin()
+Return: --void--
+*/
+function spinMultiple(numSpins){
+    if(numSpins < 1 || typeof numSpins != 'number')
+        return;
+
+    //console.log("A " + numSpins + "x pull? Really?")
+    for (let i = 0; i<numSpins; i++) {
         spin()
     }
+
 }
 
 // Testing Zone... Quesitonable Stuff here
