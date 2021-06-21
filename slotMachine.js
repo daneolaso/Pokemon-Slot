@@ -1,4 +1,12 @@
 console.log ("this is working");
+
+
+
+function getPokeballImg() {
+    var pokeball = '<img class="pokemon" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">';
+    return pokeball;
+}
+
 // testing is JavaSCript is connected. play with the console to verify if the functions are working as inteneded
 
 function getElement (id) { // generic function to get code to interact with HTML
@@ -48,6 +56,25 @@ function getPokemonImage (slotValue) {
     return pokemonImageArray[slotValue];
 }
 
+/*
+Description: populate the table with an Img
+Parameters: @img
+Return: --void--
+*/
+
+
+function originalTable (img) {
+    
+    var table = document.getElementById("myTab1")
+    for (var i = 0; i < table.rows[0].cells.length; i++) {
+        for (var j = 0, row; row = table.rows[j]; j++){
+            var cell = row.cells[i];
+            cell.innerHTML = img
+            //TODO pokeball image
+        }
+    }
+}
+
 function spin () { // upon clicking pull, the column arrays are generated...
     
 
@@ -92,10 +119,6 @@ function spin () { // upon clicking pull, the column arrays are generated...
             cell.innerHTML = getPokemonImage(slotMatrix[i][j]);
         }
     }
-
-    
-
-
 
     var slotT1 = slotMatrix[0][0];
     var slotC1 = slotMatrix[0][1]; // 2.) set a variable as index from array

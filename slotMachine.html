@@ -18,7 +18,7 @@ tips: shortcut for commenting out stuff is " apple + /"  -->
     <link rel="stylesheet" href="slotMachine.css">
     <script src="slotMachine.js"></script>
 </head>
-<body>
+<body onload = "originalTable(getPokeballImg())" >
     <h1 class="center">Play Slot!</h1>
     <div class = "center lever">
         <button type= "button" onclick= "spin()" class="buttonSpin" >  Pull  </button>
@@ -48,39 +48,38 @@ tips: shortcut for commenting out stuff is " apple + /"  -->
     </table>
 
     <table class="center" id="myTab1">
-        <tbody> <!-- refactor this into ... not a table -- a-->
+        <tbody > <!-- refactor this into ... not a table -- a-->
             <tr>
                 <td class="topA">
-                    <img src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
-                    <span  id="top1" class="slot-value"> ? </span>
+                    <img id="top1" class="slot-value pokemon" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
                 </td>
                 <td>
-                    <span id= "top2" class="slot-value"> ? </span>
+                    <img id="top2" class="slot-value pokemon" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
                 </td>
                 <td>
-                    <span id= "top3" class="slot-value"> ? </span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span id= "center1" class="slot-value"> ? </span>
-                </td>
-                <td>
-                    <span id= "center2" class="slot-value"> ? </span>
-                </td>
-                <td>
-                    <span id= "center3" class="slot-value"> ? </span>
+                    <img id="top3" class="slot-value pokemon" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span id= "bot1" class="slot-value"> ? </span>
+                    <img id="center1" class="slot-value pokemon" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
                 </td>
                 <td>
-                    <span id= "bot2" class="slot-value"> ? </span>
+                    <img id="center2" class="slot-value pokemon" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
                 </td>
                 <td>
-                    <span id= "bot3" class="slot-value"> ? </span>
+                    <img id="center3" class="slot-value pokemon" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img id="bot1" class="slot-value pokemon" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
+                </td>
+                <td>
+                    <img id="bot2" class="slot-value pokemon" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
+                </td>
+                <td>
+                    <img id="bot3" class="slot-value pokemon" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
                 </td>
             </tr>
         </tbody>
@@ -89,43 +88,6 @@ tips: shortcut for commenting out stuff is " apple + /"  -->
     <div id="message" class="center message">
         Welcome! Ready to Play?
     </div>
-    <table class="center"> <!-- PokeBall Image Slot Version-->>
-        <tbody>
-            <tr> <!-- Top row -->
-                <td >
-                    <img id="topImg1" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
-                </td>
-                <td>
-                    <img id="topImg2" class="slot"src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
-                </td>
-                <td>
-                    <img id="topImg3" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
-                </td>
-            </tr>
-            <tr> <!-- Center row -->
-                <td>
-                    <img id="centerImg1" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
-                </td>
-                <td>
-                    <img id="centerImg2" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
-                </td>
-                <td>
-                    <img id="centerImg3" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
-                </td>
-            </tr>
-            <tr> <!-- Bot row -->
-                <td>
-                    <img id="botImg1" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
-                </td>
-                <td>
-                    <img id="botImg2" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
-                </td>
-                <td>
-                    <img id="botImg3" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <img src="https://static.pokemonpets.com/images/monsters-images-300-300/4228-Unown-Question.png" alt="Unknown" id="Unknown">      
     <audio id="boing">
         <source src="SlotMachine Audio/boing.mp3" type="audio/mpeg">
