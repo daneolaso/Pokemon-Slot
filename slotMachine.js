@@ -192,16 +192,22 @@ Description: Calls spin() multiple times.
 Parameters: @numSpins - number of times to call spin()
 Return: --void--
 */
-function spinMultiple(numSpins){
+async function spinMultiple(numSpins){
     if(numSpins < 1 || typeof numSpins != 'number')
         return;
 
     //console.log("A " + numSpins + "x pull? Really?")
+    
+    //TODO: disable pull buttons
     for (let i = 0; i<numSpins; i++) {
-        spin()
+        await timer(1000);
+        spin();
     }
 
+    //TODO: enable pull buttons
 }
+
+function timer(ms) { return new Promise(res => setTimeout(res, ms)); } // timer function declared for task()
 
 // Testing Zone... Quesitonable Stuff here
 
@@ -228,7 +234,7 @@ async function main() {
   // main(); 
   // execute function main() that has nested function task() embedded
   
-function timer(ms) { return new Promise(res => setTimeout(res, ms)); } // timer function declared for task()
+
 
 
 async function suspense1() { // this delays the entire spin; all 3 columns
