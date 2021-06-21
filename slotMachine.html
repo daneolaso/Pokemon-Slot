@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<!-- goal of the project: make a slot machine that displays
+multiple skillsets.
+    1. log in page
+    2. random generator for values
+    3. keeps track of "money"
+    4. sound indicator of win
+    5. sound indicator of spin
+    6. backround music
+tips: shortcut for commenting out stuff is " apple + /"  -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine Game</title>
+    <link rel="stylesheet" href="slotMachine.css">
+    <script src="slotMachine.js"></script>
+</head>
+<body>
+    <h1 class="center">Play Slot!</h1>
+    <div class = "center lever">
+        <button type= "button" onclick= "spin()" >  Pull  </button>
+        <!-- <button type="button" onclick="alert('You pressed the button!')">Click me!</button> 
+        This is the format dummy example: -->
+        <button type= "button" onclick= "tenPull()" >  10 x Pull  </button>
+        <!-- do spin() 10 times. work in -->
+    </div>
+    <table class="center"> <!-- Pokemon --> 
+        <tr>
+            <td>
+                <img class="pokemon" src="https://cdn2.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/500px-001Bulbasaur.png"  id="bulbasaur" alt="bulbasaur">
+            </td>
+            <td>
+                <img class="pokemon" src="https://cdn2.bulbagarden.net/upload/thumb/7/73/004Charmander.png/500px-004Charmander.png"  id="charmander" alt="charmander">
+            </td>
+            <td>
+                <img class="pokemon" src="https://cdn2.bulbagarden.net/upload/thumb/3/39/007Squirtle.png/500px-007Squirtle.png"  id="squirtle" alt="squirtle">
+            </td>
+            <td>
+                <img class="pokemon" src="https://cdn2.bulbagarden.net/upload/thumb/1/17/025Pikachu-Original.png/1200px-025Pikachu-Original.png"  id="pikachu" alt="pikachu"> 
+            </td>
+            <td>
+                <img class="pokemon" src="https://cdn2.bulbagarden.net/upload/thumb/6/6e/133Eevee_LG.png/220px-133Eevee_LG.png"  id="eevee" alt="eevee">    
+            </td>
+        </tr>
+    </table>
+
+    <table class="center" id="myTab1">
+        <tbody> <!-- refactor this into ... not a table -- a-->
+            <tr>
+                <td class="topA">
+                    <span  id="top1" class="slot-value"> ? </span>
+                </td>
+                <td>
+                    <span id= "top2" class="slot-value"> ? </span>
+                </td>
+                <td>
+                    <span id= "top3" class="slot-value"> ? </span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span id= "center1" class="slot-value"> ? </span>
+                </td>
+                <td>
+                    <span id= "center2" class="slot-value"> ? </span>
+                </td>
+                <td>
+                    <span id= "center3" class="slot-value"> ? </span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span id= "bot1" class="slot-value"> ? </span>
+                </td>
+                <td>
+                    <span id= "bot2" class="slot-value"> ? </span>
+                </td>
+                <td>
+                    <span id= "bot3" class="slot-value"> ? </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="message" class="center message">
+        Welcome! Ready to Play?
+    </div>
+    <table class="center"> <!-- PokeBall Image Slot Version-->>
+        <tbody>
+            <tr> <!-- Top row -->
+                <td >
+                    <img id="topImg1" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
+                </td>
+                <td>
+                    <img id="topImg2" class="slot"src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
+                </td>
+                <td>
+                    <img id="topImg3" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
+                </td>
+            </tr>
+            <tr> <!-- Center row -->
+                <td>
+                    <img id="centerImg1" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
+                </td>
+                <td>
+                    <img id="centerImg2" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
+                </td>
+                <td>
+                    <img id="centerImg3" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
+                </td>
+            </tr>
+            <tr> <!-- Bot row -->
+                <td>
+                    <img id="botImg1" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
+                </td>
+                <td>
+                    <img id="botImg2" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
+                </td>
+                <td>
+                    <img id="botImg3" class="slot" src="https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest/scale-to-width-down/767?cb=20140520015336" alt="Unknown">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <img src="https://static.pokemonpets.com/images/monsters-images-300-300/4228-Unown-Question.png" alt="Unknown" id="Unknown">      
+    <audio id="boing">
+        <source src="SlotMachine Audio/boing.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>

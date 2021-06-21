@@ -1,0 +1,71 @@
+
+.center {
+    text-align:center;
+    color: chocolate;
+    margin-left: auto;
+    margin-right: auto;
+}
+table.center {
+    text-align: right;
+    color: purple;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: black;
+    border-style: solid;
+    border-radius: 10px;
+        
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+.message {
+    text-align: center;
+    font-size: xx-large;
+    color: rgb(21, 42, 160);
+}  
+
+.winner {
+    text-align: center;
+    display: none;
+    font-size: xx-large;
+    color: darkgreen;
+}
+
+.loser {
+    text-align: center;
+    display: none;
+    font-size: xx-large;
+    color: rgb(177, 12, 12);
+}
+
+.lever {
+    margin: 10px;
+}
+
+.pokemon {
+    height: 50px;
+    width: 50px;
+}
+
+.slot {
+    height: 30px;
+    width: 30px;
+}
+
+.window {
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    border: 4px solid black;
+  }
+  .window > img {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    top: -64px;
+    transition: height 0.3s;
+    transition-timing-function: linear;
+  }
