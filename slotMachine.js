@@ -48,11 +48,6 @@ function getPokemonImage (slotValue) {
     return pokemonImageArray[slotValue];
 }
 
-// things to do.
-// 1.) "spin" call for the function that will generate the numbers
-// 2.) delay the "return" of the numbers
-
-
 function spin () { // upon clicking pull, the column arrays are generated...
     
 
@@ -97,6 +92,8 @@ function spin () { // upon clicking pull, the column arrays are generated...
             cell.innerHTML = getPokemonImage(slotMatrix[i][j]);
         }
     }
+
+    
 
 
 
@@ -196,60 +193,29 @@ async function spinMultiple(numSpins){
     if(numSpins < 1 || typeof numSpins != 'number')
         return;
 
-    //console.log("A " + numSpins + "x pull? Really?")
-    
-    //TODO: disable pull buttons
+    var buttons = document.getElementsByClassName("buttonSpin");
+
+    disableButtons(buttons, true)
+
     for (let i = 0; i<numSpins; i++) {
         await timer(1000);
         spin();
     }
 
-    //TODO: enable pull buttons
+    disableButtons(buttons, false)
 }
 
-function timer(ms) { return new Promise(res => setTimeout(res, ms)); } // timer function declared for task()
+/*
+Description: disables HTMLS buttons
+Parameters: @buttons - HTML collection of buttons
+            @disabled - boolean ( true or false )
+Return: --void--
+*/
 
-// Testing Zone... Quesitonable Stuff here
-
-// This function executes a "async" function
-// creates a condition or a scenario that doesn't execute the function until the conditions are met
-// in this case... 
-
-async function task(i) { // although parameter "i" isn't defined in task(), it is defined in function main()
-    await timer(1000); // set an interval function in ms (miliseconds)
-    console.log(`Task ${i} done!`); // do something < you code goes here >
-    console.log(getRandomNumber ());
-  } // this one only executes the function once
-  
-async function main() { 
-    for (let i = 0; i < 20; i+= 10) { //i has an increasing incraments of 10?
-      for (let j = 0; j < 10; j++) { // j increases at an incrament of 1
-        if(j % 2) { // 2, if j is divisible by 2 (j / 2 = )
-          await task(i + j); // <--- ???? ...
-        }
-      }
+function disableButtons(buttons, disabled) {
+    for (let i=0; i<buttons.length; i++) {
+        buttons.item(i).disabled = disabled
     }
-  }
-      
-  // main(); 
-  // execute function main() that has nested function task() embedded
-  
-
-
-
-async function suspense1() { // this delays the entire spin; all 3 columns
-    await timer (1000);
-    spin();
 }
-
-async function suspense2() {
-    await timer (1000);
-    getRandomNumber();
-}
-
-async function suspense3() {
-    await timer (1000);
-    getColumn();
-}
-
+function timer(ms) { return new Promise(res => setTimeout(res, ms)); } // timer function declared for task()
 
